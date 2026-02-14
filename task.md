@@ -1,0 +1,17 @@
+# Task List
+
+- [x] **Context Analysis & Verification**
+    - [x] Read `claude.MD` and understand project state.
+    - [x] Verify backend API (`verify_api.py`).
+    - [x] **Fix Critical Issues**:
+        - [x] Add missing ForeignKey in `UserProfile` (`backend/app/models/users.py`).
+        - [x] Fix Gemini Model Name (`gemini-flash-latest` in `backend/app/agents/base.py`).
+        - [x] Seed test user (`seed_user.py`).
+- [x] **Implement Recipes API** <!-- id: 1 -->
+    - [ ] Create `backend/app/services/recipes_service.py`.
+    - [ ] Create `backend/app/api/recipes.py`.
+    - [ ] Register router in `backend/app/main.py`.
+    - [ ] Verify implementation.
+- [ ] **Frontend Development** (Future)
+    - [ ] Dashboard UI.
+    - [ ] Meal Log UI.
