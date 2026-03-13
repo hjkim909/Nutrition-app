@@ -34,6 +34,10 @@ from .inventory import (
     InventoryAlert,
     InventoryAlertResponse,
 )
+from .vision import (
+    VisionAnalyzeRequest,
+    VisionAnalyzeResponse,
+)
 
 __all__ = [
     # Users
@@ -67,4 +71,7 @@ __all__ = [
     "InventoryResponse",
     "InventoryAlert",
     "InventoryAlertResponse",
+    # Vision
+    "VisionAnalyzeRequest",
+    "VisionAnalyzeResponse",
 ]

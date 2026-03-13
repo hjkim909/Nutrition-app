@@ -14,7 +14,9 @@ from ..schemas.meals import (
     MealResponse,
     NutritionBalance
 )
+from ..schemas.vision import VisionAnalyzeRequest, VisionAnalyzeResponse
 from ..services.meals_service import MealsService
+from ..agents.vision_agent import VisionAgent
 
 router = APIRouter()
 
@@ -128,3 +130,26 @@ def get_nutrition_balance(
         raise HTTPException(status_code=404, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error calculating nutrition balance: {str(e)}")
+
+
+@router.post("/analyze-image", response_model=VisionAnalyzeResponse)
+def analyze_meal_image(request: VisionAnalyzeRequest):
+    """
+    Analyze a food image using Vision AI (Gemini 3.1 Flash-Lite) to extract nutritional info.
+    
+    Expects a base64 encoded image string.
+    Returns estimated food name, calories, macros, and confidence score.
+    """
+    agent = VisionAgent()
+    try:
+        input_data = {
+            "image_base64": request.image_base64,
+            "mime_type": request.mime_type
+        }
+        result = agent.process(input_data)
+        return VisionAnalyzeResponse(**result)
+    except ValueError as e:
+        raise HTTPException(status_code=422, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Vision analysis failed: {str(e)}")
+

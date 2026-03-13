@@ -7,6 +7,10 @@
         - [x] Add missing ForeignKey in `UserProfile` (`backend/app/models/users.py`).
         - [x] Fix Gemini Model Name (`gemini-flash-latest` in `backend/app/agents/base.py`).
         - [x] Seed test user (`seed_user.py`).
+- [x] **Git Repository Setup**
+    - [x] Initialize local repo.
+    - [x] Create `.gitignore`.
+    - [x] Push to remote: [Nutrition-app](https://github.com/hjkim909/Nutrition-app)
 - [x] **Implement Recipes API** <!-- id: 1 -->
     - [ ] Create `backend/app/services/recipes_service.py`.
     - [ ] Create `backend/app/api/recipes.py`.
